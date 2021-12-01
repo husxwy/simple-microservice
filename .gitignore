@@ -4,6 +4,8 @@
 target/
 */target/
 */*/target/
+*/*/*/target/
+
 *.releaseBackup
 
 # web application files

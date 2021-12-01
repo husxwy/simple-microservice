@@ -135,4 +135,8 @@ Icon
 
 ## hack for graddle wrapper
 !wrapper/*.jar
+<<<<<<< HEAD
 !**/wrapper/*.jar
+=======
+!**/wrapper/*.jar
+>>>>>>> origin/master

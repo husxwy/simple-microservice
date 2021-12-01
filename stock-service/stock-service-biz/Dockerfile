@@ -17,9 +17,9 @@ RUN  set -x \
 #     && adduser  -u 1000  -G aspire -g aspire aspire
 USER $group
 COPY ./target/stock-service-biz.jar $workdir/
-RUN chown -R aspire $workdir
+RUN chown -R ${user}:${group} $workdir
 #COPY pinpoint /pinpoint
 EXPOSE 8030
 #CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=$(echo $HOSTNAME | awk -F- '{print "stock-"$NF}') -Dpinpoint.applicationName=ms-stock $JAVA_ARGS $JAVA_OPTS /stock-service-biz.jar
 #CMD java -jar  $JAVA_ARGS $JAVA_OPTS /stock-service-biz.jar
-ENTRYPOINT [ "sh", "-c", "java $JVM_OPTS $JAVA_OPTS -jar /aiap/machine/app.jar $APP_OPTS" ]
+ENTRYPOINT [ "sh", "-c", "java $JVM_OPTS $JAVA_OPTS -jar $workdir/stock-service-biz.jar $APP_OPTS" ]

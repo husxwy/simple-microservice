@@ -2,9 +2,9 @@
 
 # .gitignore for maven 
 target/
-*/target/
-*/*/target/
-*/*/*/target/
+/*/target/
+/*/*/target/
+/*/*/*/target/
 
 *.releaseBackup
 
@@ -51,6 +51,8 @@ target/
 target/
 out/
 build/
+/basic-common/basic-common-core/target/
+
  
 # other
 *.iws
@@ -137,8 +139,4 @@ Icon
 
 ## hack for graddle wrapper
 !wrapper/*.jar
-<<<<<<< HEAD
 !**/wrapper/*.jar
-=======
-!**/wrapper/*.jar
->>>>>>> origin/master

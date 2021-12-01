@@ -1,0 +1,3 @@
+### GET request with a header
+GET http://gateway.ctnrs.com/product/queryAllProduct
+Accept: application/json

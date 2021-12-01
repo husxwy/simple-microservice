@@ -1,6 +1,8 @@
 FROM openjdk:8u292-jre-slim
 LABEL maintainer www.ctnrs.com
 ENV workdir=/apps \
+    gid=1000 \
+    uid=1000 \
     user=aspire \
     group=aspire \
     APP_OPTS="$APP_OPTS "\
@@ -9,8 +11,10 @@ ENV workdir=/apps \
 RUN mkdir -p $workdir
 
 RUN  set -x \
-     && addgroup -g 1000 -S aspire \
-     && adduser  -u 1000  -G aspire -g aspire aspire
+     && groupadd -g ${gid} ${group} \
+     && useradd -u ${uid} -g ${group} -s /bin/sh ${user}
+#     && addgroup -g 1000 -S aspire \
+#     && adduser  -u 1000  -G aspire -g aspire aspire
 USER $group
 COPY ./target/stock-service-biz.jar $workdir/
 RUN chown -R aspire $workdir

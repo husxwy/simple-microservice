@@ -11,13 +11,14 @@ kubectl create secret docker-registry registry-pull-secret --docker-server=$dock
 
 #service_list="eureka-service gateway-service order-service product-service stock-service portal-service"
 #service_list="eureka-service"
-service_list="order-service product-service stock-service"
+#service_list="order-service product-service stock-service"
+service_list=" stock-service"
 
 service_list=${1:-${service_list}}
 work_dir=$(dirname $PWD)
 current_dir=$PWD
 version=$(date +%Y%m%d%H%M%S)
-version=dev-1.0
+version=dev-1.0.1
 
 cd $work_dir
 #mvn clean package -Dmaven.test.skip=true -P prod

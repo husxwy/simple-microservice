@@ -19,7 +19,7 @@ spec:
       - name: registry-pull-secret
       containers:
       - name: stock
-        image: harbor.husx.top/microservice/stock-service:dev-1.0
+        image: harbor.husx.top/microservice/stock-service:dev-1.0.1
         imagePullPolicy: Always
         ports:
           - protocol: TCP

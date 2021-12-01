@@ -1,5 +1,7 @@
 FROM lizhenliang/java:8-jdk-alpine
 LABEL maintainer www.ctnrs.com
+RUN useradd -r -u 1000 -g 1000
+USER 1000
 ENV JAVA_ARGS="-Dfile.encoding=UTF8 -Duser.timezone=GMT+08"
 COPY ./target/eureka-service.jar ./
 #COPY pinpoint /pinpoint

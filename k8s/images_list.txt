@@ -1,0 +1,1 @@
+harbor.husx.top/microservice/stock-service:dev-1.0.1

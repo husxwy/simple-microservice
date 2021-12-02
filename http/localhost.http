@@ -1,8 +1,4 @@
 ### GET request with a header
-GET http://gateway.ctnrs.com/product/queryAllProduct
-Accept: application/json
-
-### GET request with a header
 GET http://localhost:9999/product/queryAllProduct
 Accept: application/json
 

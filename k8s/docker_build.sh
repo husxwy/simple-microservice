@@ -18,7 +18,7 @@ service_list=${1:-${service_list}}
 work_dir=$(dirname $PWD)
 current_dir=$PWD
 version=$(date +%Y%m%d%H%M%S)
-version=dev-1.0.1
+version=dev-1.0.3
 
 cd $work_dir
 #mvn clean package -Dmaven.test.skip=true -P prod

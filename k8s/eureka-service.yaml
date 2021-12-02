@@ -52,7 +52,7 @@ spec:
       - name: registry-pull-secret
       containers:
       - name: eureka
-        image: harbor.husx.top/microservice/eureka-service:dev-1.0.1
+        image: harbor.husx.top/microservice/eureka-service:dev-1.0.3
         imagePullPolicy: Always
         ports:
           - protocol: TCP

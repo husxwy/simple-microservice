@@ -15,3 +15,8 @@ dev2 编写Dockerfile构建镜像
 dev3 K8S资源编排
 dev4 微服务链路监控
 master 最终上线
+
+
+http://eureka.ctnrs.com
+http://gateway.ctnrs.com
+http://portal.ctnrs.com

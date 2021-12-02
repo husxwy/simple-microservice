@@ -9,10 +9,10 @@ kubectl create ns ms
 # 存储登录Harbor认证信息
 kubectl create secret docker-registry registry-pull-secret --docker-server=$docker_registry --docker-username=admin --docker-password=Harbor123 --docker-email=admin@ctnrs.com -n ms
 
-#service_list="eureka-service gateway-service order-service product-service stock-service portal-service"
+service_list="eureka-service gateway-service order-service product-service stock-service portal-service"
 #service_list="eureka-service"
 #service_list="order-service product-service stock-service"
-service_list=" stock-service"
+#service_list=" stock-service"
 
 service_list=${1:-${service_list}}
 work_dir=$(dirname $PWD)

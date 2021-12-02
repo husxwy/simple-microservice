@@ -2,6 +2,6 @@ server:
   port: 9999
 spring:
   profiles:
-    active: fat
+    active: dev
   application:
     name: @artifactId@

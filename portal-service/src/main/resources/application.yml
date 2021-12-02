@@ -9,4 +9,4 @@ spring:
   application:
     name: portal-service
   profiles:
-    active: fat
+    active: dev

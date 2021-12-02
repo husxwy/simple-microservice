@@ -27,6 +27,8 @@ spec:
         env:
           - name: JAVA_OPTS
             value: "-Xmx256m"
+          - name: APP_OPTS
+            value: "--spring.profiles.active=fat"
         resources:
           requests:
             cpu: 0.1

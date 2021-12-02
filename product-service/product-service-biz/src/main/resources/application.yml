@@ -2,6 +2,6 @@ server:
   port: 8010
 spring:
   profiles:
-    active: fat
+    active: dev
   application:
     name: product-service

@@ -19,7 +19,7 @@ spec:
       - name: registry-pull-secret
       containers:
       - name: product
-        image: harbor.husx.top/microservice/product-service:dev-1.0
+        image: harbor.husx.top/microservice/product-service:dev-1.0.1
         imagePullPolicy: Always
         ports:
           - protocol: TCP
@@ -27,6 +27,8 @@ spec:
         env:
           - name: JAVA_OPTS
             value: "-Xmx256m"
+          - name: APP_OPTS
+            value: "--spring.profiles.active=fat"
         resources:
           requests:
             cpu: 0.1

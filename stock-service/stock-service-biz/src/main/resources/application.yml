@@ -2,6 +2,6 @@ server:
   port: 8030
 spring:
   profiles:
-    active: fat
+    active: dev
   application:
     name: stock-service

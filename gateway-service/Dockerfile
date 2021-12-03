@@ -18,7 +18,7 @@ RUN  set -x \
      && chown -R $user:$group $workdir
 #     && addgroup -g 1000 -S aspire \
 #     && adduser  -u 1000  -G aspire -g aspire aspire
-USER $group
+USER $user
 COPY --chown=$user:$group ./target/$jar_name $workdir/
 #COPY pinpoint /pinpoint
 EXPOSE 9999

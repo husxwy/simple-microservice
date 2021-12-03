@@ -13,7 +13,6 @@ ENV workdir=/apps \
 RUN  set -x \
      && groupadd -g ${gid} ${group} \
      && useradd -u ${uid} -g ${group} -s /bin/sh ${user} \
-     && set -x \
      && mkdir -p $workdir \
      && chown -R $user:$group $workdir
 #     && addgroup -g 1000 -S aspire \

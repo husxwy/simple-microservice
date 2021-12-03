@@ -141,3 +141,7 @@ Icon
 !wrapper/*.jar
 !**/wrapper/*.jar
 /basic-common/basic-common-core/target/
+/skywalking-agent/apache-skywalking-apm-8.8.1.tar.gz
+/skywalking-agent/apache-skywalking-apm-8.8.1/
+/skywalking-agent/apache-skywalking-apm-bin/
+/skywalking-agent/agent/

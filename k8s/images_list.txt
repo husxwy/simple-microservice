@@ -1,6 +1,0 @@
-harbor.husx.top/microservice/eureka-service:dev-1.0.3
-harbor.husx.top/microservice/gateway-service:dev-1.0.3
-harbor.husx.top/microservice/order-service:dev-1.0.3
-harbor.husx.top/microservice/product-service:dev-1.0.3
-harbor.husx.top/microservice/stock-service:dev-1.0.3
-harbor.husx.top/microservice/portal-service:dev-1.0.3

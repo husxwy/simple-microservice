@@ -48,6 +48,18 @@ spec:
         project: ms 
         app: eureka
     spec:
+      #构建初始化镜像(通过初始化镜像的方式集成SkyWalking Agent)
+      initContainers:
+        - image: harbor.husx.top/microservice/skywalking-agent:8.3.0-2
+          name: sw-agent-sidecar
+          imagePullPolicy: IfNotPresent
+          command:
+            - 'sh'
+            - '-c'
+            - 'set -ex && mkdir -p /skywalking/agent && cp -r /usr/skywalking/agent/* /skywalking/agent  '
+          volumeMounts:
+            - mountPath: /skywalking/agent
+              name: sw-agent
       imagePullSecrets:
       - name: registry-pull-secret
       containers:
@@ -58,22 +70,32 @@ spec:
           - protocol: TCP
             containerPort: 8888
         env:
+          - name: SW_AGENT_NAME
+            value: eureka
+          - name: SW_AGENT_COLLECTOR_BACKEND_SERVICES
+            # FQDN: servicename.namespacename.svc.cluster.local
+            value: skywalking-oap.skywalking:11800
+            #这里通过JAVA_TOOL_OPTIONS，而不是JAVA_OPTS可以实现不通过将agent命令加入到java应用jvm参数而实现agent的集成
+          - name: JAVA_TOOL_OPTIONS
+            value:
+              -Dskywalking.agent.service_name=eureka
+              -javaagent:/usr/skywalking/agent/skywalking-agent.jar
+              -Dskywalking.collector.backend_service=skywalking-oap.skywalking:11800
+
           - name: JAVA_OPTS
-            value: "-Xmx256m"
+            value: "-Xmx512m"
           - name: APP_OPTS
             value: "--spring.profiles.active=fat"
-          - name: MY_POD_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-                
+        volumeMounts:
+          - mountPath: /usr/skywalking/agent
+            name: sw-agent
         resources:
           requests:
             cpu: 0.1
-            memory: 256Mi
+            memory: 512Mi
           limits:
-            cpu: 0.3
-            memory: 512Gi
+            cpu: 0.5
+            memory: 800Mi
         # readinessProbe:
         #   tcpSocket:
         #     port: 8888
@@ -82,5 +104,8 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 8888
-          initialDelaySeconds: 60
+          initialDelaySeconds: 120
           periodSeconds: 10
+      volumes:
+        - name: sw-agent
+          emptyDir: { }
